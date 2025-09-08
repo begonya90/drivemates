@@ -47,7 +47,7 @@ const HeroSection = () => {
       }}
     >
       <motion.img 
-        src="/ls.png" 
+        src="/drivemates/ls.png" 
         alt="Hero background" 
         style={{ 
           width: 'auto',

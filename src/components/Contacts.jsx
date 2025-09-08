@@ -303,10 +303,9 @@ const Contacts = () => {
                   borderRadius: '4px',
                   fontSize: '1rem',
                   cursor: 'pointer',
-                  transition: 'background-color 0.3s ease',
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
-                  transition: 'opacity 0.5s ease-out 1.6s, transform 0.5s ease-out 1.6s, background-color 0.3s ease'
+                  transition: 'background-color 0.3s ease, opacity 0.5s ease-out 1.6s, transform 0.5s ease-out 1.6s'
                 }}
                 onMouseEnter={(e) => e.target.style.backgroundColor = '#333'}
                 onMouseLeave={(e) => e.target.style.backgroundColor = '#000'}

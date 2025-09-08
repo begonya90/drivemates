@@ -87,10 +87,9 @@ const Services = () => {
                 border: '1px solid #e0e0e0', 
                 borderRadius: '8px',
                 boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                transition: 'transform 0.3s ease',
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                transition: `opacity 0.8s ease-out ${0.6 + index * 0.1}s, transform 0.8s ease-out ${0.6 + index * 0.1}s`
+                transition: `transform 0.3s ease, opacity 0.8s ease-out ${0.6 + index * 0.1}s, transform 0.8s ease-out ${0.6 + index * 0.1}s`
               }}
               onMouseEnter={(e) => e.target.style.transform = 'translateY(-5px)'}
               onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}

@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* Celessa font for hero section */
+.hero-text {
+  font-family: 'Celessa', sans-serif;
+  font-weight: normal;
+}

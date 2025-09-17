@@ -56,8 +56,8 @@ const TestimonialSlider = ({ testimonials = [], autoRotate = true, duration = 5 
   const activeTestimonial = testimonials[activeIndex];
 
   return (
-    <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-      {/* Testimonial image */}
+    <div style={{ width: '100%', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }} role="region" aria-label="Testimonial slider">
+      {/* Testimonial image */}`
       <div style={{ position: 'relative', height: '128px' }}>
         <div 
           style={{ 
@@ -101,6 +101,7 @@ const TestimonialSlider = ({ testimonials = [], autoRotate = true, duration = 5 
                     transform: 'translateX(-50%)',
                     borderRadius: '50%'
                   }}
+                  loading="lazy"
                 />
               </motion.div>
             </AnimatePresence>
@@ -128,7 +129,7 @@ const TestimonialSlider = ({ testimonials = [], autoRotate = true, duration = 5 
                 style={{ 
                   fontSize: '1.5rem', 
                   fontWeight: 'bold', 
-                  color: '#18181b',
+                  color: '#333333',
                   position: 'relative'
                 }}
               >
@@ -152,6 +153,7 @@ const TestimonialSlider = ({ testimonials = [], autoRotate = true, duration = 5 
       >
         <button
           onClick={prevTestimonial}
+          aria-label="Previous testimonial"
           style={{
             display: 'flex',
             width: '28px',
@@ -177,9 +179,10 @@ const TestimonialSlider = ({ testimonials = [], autoRotate = true, duration = 5 
             style={{ 
               width: '20px', 
               height: '20px', 
-              color: '#000',
+              color: '#2141b1',
               transition: 'transform 300ms'
             }}
+            aria-hidden="true"
           >
             <path d="m12 19-7-7 7-7" />
             <path d="M19 12H5" />
@@ -191,12 +194,12 @@ const TestimonialSlider = ({ testimonials = [], autoRotate = true, duration = 5 
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}
         >
           <span 
-            style={{ fontSize: '16px', fontStyle: 'italic' }}
+            style={{ fontSize: '16px', fontStyle: 'italic', color: '#333333' }}
           >
             {activeTestimonial.name}
           </span>
           <span 
-            style={{ fontSize: '14px', fontStyle: 'italic' }}
+            style={{ fontSize: '14px', fontStyle: 'italic', color: '#555555' }}
           >
             {activeTestimonial.role}
           </span>
@@ -204,6 +207,7 @@ const TestimonialSlider = ({ testimonials = [], autoRotate = true, duration = 5 
 
         <button
           onClick={nextTestimonial}
+          aria-label="Next testimonial"
           style={{
             display: 'flex',
             width: '28px',
@@ -229,9 +233,10 @@ const TestimonialSlider = ({ testimonials = [], autoRotate = true, duration = 5 
             style={{ 
               width: '20px', 
               height: '20px', 
-              color: '#000',
+              color: '#2141b1',
               transition: 'transform 300ms'
             }}
+            aria-hidden="true"
           >
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
@@ -253,10 +258,11 @@ const TestimonialSlider = ({ testimonials = [], autoRotate = true, duration = 5 
               height: '12px',
               borderRadius: '50%',
               transition: 'background-color 200ms',
-              backgroundColor: index === activeIndex ? '#18181b' : '#d4d4d8',
+              backgroundColor: index === activeIndex ? '#333333' : '#d4d4d8',
               border: 'none',
               cursor: 'pointer'
             }}
+            aria-current={index === activeIndex ? 'true' : 'false'}
           />
         ))}
       </div>

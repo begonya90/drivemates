@@ -7,14 +7,34 @@
   font-display: swap;
 }
 
+/* Define Luxury Stylish font */
+@font-face {
+  font-family: 'Luxury Stylish';
+  src: url('./assets/fonts/Luxury Stylish.otf') format('opentype'),
+       url('./assets/fonts/Luxury Stylish.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  font-family: 'Celessa', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  --primary-color: #333333;
+  --primary-content: #ffffff;
+  --primary-light: #555555;
+  --primary-dark: #111111;
+  --text-color: #333;
+  --text-light: #666;
+  --background: #ffffff;
+  --border-color: #e0e0e0;
+  
+  font-family: Arial, 'Celessa', system-ui, Avenir, Helvetica, sans-serif;
+  font-size: 18px; /* Increased base font size for better readability */
+  line-height: 1.6; /* Improved line height for better readability */
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--text-color);
+  background-color: var(--background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,11 +44,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--primary-color);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--primary-light);
 }
 
 body {
@@ -53,12 +73,14 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--primary-color);
+  color: var(--primary-content);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: var(--primary-light);
+  border-color: var(--primary-light);
 }
 button:focus,
 button:focus-visible {
@@ -67,13 +89,14 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--text-color);
+    background-color: var(--background);
   }
   a:hover {
-    color: #747bff;
+    color: var(--primary-light);
   }
   button {
-    background-color: #f9f9f9;
+    background-color: var(--primary-color);
+    color: var(--primary-content);
   }
 }

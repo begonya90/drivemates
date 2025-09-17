@@ -1,6 +1,5 @@
 export { default as HeroSection } from './HeroSection';
-export { default as AboutUs } from './AboutUs';
-export { default as Services } from './Services';
-export { default as FAQ } from './FAQ';
-export { default as Contacts } from './Contacts';
-export { default as BlurText } from './BlurText';
+export { default as UnifiedContentSection } from './UnifiedContentSection';
+export { default as NavigationBar } from './NavigationBar';
+export { default as CircularText } from './CircularText';
+export { default as TestimonialSlider } from './TestimonialSlider';

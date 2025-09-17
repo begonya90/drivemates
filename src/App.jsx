@@ -1,16 +1,13 @@
-import { HeroSection, AboutUs, Services, FAQ, Contacts } from './components'
+import { HeroSection, NavigationBar } from './components'
+import UnifiedContentSection from './components/UnifiedContentSection'
 import './App.css'
 
 function App() {
   return (
     <>
+      <NavigationBar />
       <HeroSection />
-      <div style={{ position: 'relative', zIndex: 1, marginTop: '100vh' }}>
-        <AboutUs />
-        <Services />
-        <FAQ />
-        <Contacts />
-      </div>
+      <UnifiedContentSection />
     </>
   )
 }

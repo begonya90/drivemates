@@ -40,6 +40,17 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Prevent zooming issues */
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Prevent zooming on form elements */
+input, textarea, select {
+  font-size: 16px; /* Prevents iOS Safari zooming */
 }
 
 a {
@@ -55,10 +66,15 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 #root {
   min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 h1 {

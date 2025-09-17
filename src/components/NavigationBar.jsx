@@ -65,7 +65,10 @@ const NavigationBar = () => {
         backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.8)',
         backdropFilter: isScrolled ? 'blur(10px)' : 'blur(5px)',
         transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease', // Added padding transition
-        boxShadow: isScrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : '0 2px 5px rgba(0, 0, 0, 0.05)'
+        boxShadow: isScrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : '0 2px 5px rgba(0, 0, 0, 0.05)',
+        boxSizing: 'border-box',
+        maxWidth: '100vw',
+        overflow: 'hidden'
       }}
     >
       {/* Logo */}

@@ -40,7 +40,9 @@ const HeroSection = () => {
         alignItems: 'center',
         justifyContent: 'center',
         opacity: isVisible ? 1 : 0,
-        transition: 'opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+        transition: 'opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        boxSizing: 'border-box',
+        overflow: 'hidden'
       }}
     >
       {/* Text content */}
@@ -52,7 +54,8 @@ const HeroSection = () => {
           width: '100%',
           maxWidth: '800px',
           padding: '0 20px',
-          marginTop: '-400px' /* Move text higher */
+          marginTop: '-400px', /* Move text higher */
+          boxSizing: 'border-box'
         }}
       >
         <h1 className="hero-heading"

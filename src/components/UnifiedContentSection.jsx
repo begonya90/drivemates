@@ -220,14 +220,18 @@ const UnifiedContentSection = () => {
         position: 'relative', 
         zIndex: 1, 
         marginTop: '100vh',
-        paddingTop: '80px'
+        paddingTop: windowWidth <= 768 ? '70px' : '90px', // Adjusted padding to account for navbar height
+        boxSizing: 'border-box',
+        width: '100%'
       }}
     >
       {/* Content Sections */}
       <div style={{ 
         maxWidth: '1200px', 
         margin: '0 auto',
-        padding: '40px 20px'
+        padding: '40px 20px',
+        boxSizing: 'border-box',
+        width: '100%'
       }}>
         {/* Home Section (Hero reference) */}
         <div id="home" style={{ height: '1px', position: 'absolute', top: '0' }}></div>
@@ -348,7 +352,9 @@ const UnifiedContentSection = () => {
             display: 'grid', 
             gridTemplateColumns: windowWidth <= 768 ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))', 
             gap: windowWidth <= 768 ? '20px' : '30px',
-            padding: windowWidth <= 768 ? '10px' : '20px'
+            padding: windowWidth <= 768 ? '10px' : '20px',
+            width: '100%',
+            boxSizing: 'border-box'
           }}>
             {services.map((service, index) => (
               <div 
@@ -364,6 +370,10 @@ const UnifiedContentSection = () => {
                   }
                 }}
                 aria-label={`View details for ${service.title} service`}
+                style={{
+                  maxWidth: '100%',
+                  boxSizing: 'border-box'
+                }}
               >
                 <div style={{
                   position: 'absolute',
@@ -382,7 +392,8 @@ const UnifiedContentSection = () => {
                 <div style={{
                   height: windowWidth <= 768 ? '150px' : '180px',
                   overflow: 'hidden',
-                  position: 'relative'
+                  position: 'relative',
+                  width: '100%'
                 }}>
                   <img 
                     src={service.image} 
@@ -391,19 +402,26 @@ const UnifiedContentSection = () => {
                     loading="lazy"
                   />
                 </div>
-                <div style={{ padding: windowWidth <= 768 ? '15px' : '30px' }}>
+                <div style={{ padding: windowWidth <= 768 ? '15px' : '30px', boxSizing: 'border-box' }}>
                   <h3 style={{ 
                     fontSize: windowWidth <= 768 ? '1.2rem' : '1.5rem', 
                     marginBottom: '15px', 
                     color: '#333',
-                    marginTop: '0'
+                    marginTop: '0',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
                   }}>
                     {service.title}
                   </h3>
                   <p style={{ 
                     fontSize: windowWidth <= 768 ? '0.9rem' : '1rem', 
                     lineHeight: '1.6', 
-                    color: '#666'
+                    color: '#666',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    display: '-webkit-box',
+                    WebkitLineClamp: '3',
+                    WebkitBoxOrient: 'vertical'
                   }}>
                     {service.description}
                   </p>
@@ -765,7 +783,9 @@ const UnifiedContentSection = () => {
             justifyContent: 'center',
             zIndex: 1000,
             opacity: isModalVisible ? 1 : 0,
-            transition: 'opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+            transition: 'opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+            overflow: 'auto',
+            boxSizing: 'border-box'
           }}
           onClick={closeZoomedCard}
           role="dialog"
@@ -785,7 +805,9 @@ const UnifiedContentSection = () => {
               transform: isModalVisible ? 'scale(1)' : 'scale(0.95)',
               opacity: isModalVisible ? 1 : 0,
               transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-              transitionDelay: isModalVisible ? '0.15s' : '0s'
+              transitionDelay: isModalVisible ? '0.15s' : '0s',
+              boxSizing: 'border-box',
+              margin: windowWidth <= 768 ? '10px' : '0'
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -829,7 +851,9 @@ const UnifiedContentSection = () => {
               height: windowWidth <= 768 ? '200px' : '300px', // Responsive image height
               overflow: 'hidden',
               borderRadius: '8px',
-              marginBottom: '20px'
+              marginBottom: '20px',
+              width: '100%',
+              boxSizing: 'border-box'
             }}>
               <img 
                 src={zoomedCard.image} 
@@ -859,7 +883,9 @@ const UnifiedContentSection = () => {
               fontSize: windowWidth <= 768 ? '1.5rem' : '2rem', // Responsive font size
               marginBottom: '15px', 
               color: '#333',
-              marginTop: '0'
+              marginTop: '0',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
             }}>
               {zoomedCard.title}
             </h2>
@@ -867,7 +893,12 @@ const UnifiedContentSection = () => {
               fontSize: windowWidth <= 768 ? '1rem' : '1.1rem', // Responsive font size
               lineHeight: '1.6', 
               color: '#666',
-              marginBottom: '20px'
+              marginBottom: '20px',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              display: '-webkit-box',
+              WebkitLineClamp: '8',
+              WebkitBoxOrient: 'vertical'
             }}>
               {zoomedCard.longDescription}
             </p>
